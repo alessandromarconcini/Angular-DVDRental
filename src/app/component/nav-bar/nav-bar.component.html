@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <b class="navbar-brand" href="#" aria-label=" DVD Store Page" tabindex="0">
+    DVD Store Page
+  </b>
+  <button class="navbar-toggler" type="button" (click)="toggleNavbarMenu()" aria-label="Toggle navigation menu">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" [ngClass]="{ 'show': showNavbarMenu }">
+    <ul class="navbar-nav ml-auto" >
+      <li class="nav-item"  >
+        <a class="nav-link btn btn-lg btn-block" routerLink="/home" routerLinkActive="active" role="button">
+          Home
+        </a>
+      </li>
+      <li class="nav-item"  >
+        <a class="nav-link btn btn-lg btn-block" routerLink="/orders" routerLinkActive="active" role="button">
+          Orders
+        </a>
+      </li>
+      <li class="nav-item"  >
+        <a class="nav-link btn btn-lg btn-block" (click)="logout()" routerLink="/login" routerLinkActive="active"
+           role="button">
+          Logout
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

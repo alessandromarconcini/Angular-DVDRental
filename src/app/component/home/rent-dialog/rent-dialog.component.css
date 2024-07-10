@@ -1,0 +1,140 @@
+*{
+  color: white;
+}
+
+.rent-card{
+  background-image: linear-gradient(80deg, #134573, #134573, darkred);
+  background-size: cover;
+}
+
+.heading{
+  font-size: 2rem;
+}
+
+.text-limit{
+
+  word-break: break-all; /* Va a capo se necessario (compatibilità cross-browser) */
+}
+
+.no-available{
+  padding-left: 3.5rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  background-color: transparent;
+}
+
+.store-card{
+  background-color: transparent;
+  border-radius: 8px;
+  padding-right: 1rem;
+  padding-bottom: 2.5rem;
+  border: 1px solid black;
+  margin-bottom: 2rem;
+  margin-left: 0;
+
+}
+
+
+p{
+  padding-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.mat-typography{
+  margin-left: 0;
+}
+
+.font-button{
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: 1px solid black;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+li{
+  font-size: 1.2rem;
+}
+
+ul{
+  transform: translate(-6%, 0%);
+}
+
+ul.no-bullet li {
+  list-style-type: none;
+}
+.responsive-calendar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-left: 0.5rem;
+}
+
+.responsive-calendar mat-form-field {
+  flex-basis: 100%;
+}
+.responsive-text {
+  font-size: 14px;
+  word-wrap: break-word;
+  white-space: normal;
+  color: #0d153d;
+}
+
+.responsive-input {
+  width: 100%;
+  font-size: 14px; /* Dimensione del testo per dispositivi di larghezza inferiore a 600px */
+  overflow-wrap: break-word; /* Va a capo se necessario */
+  word-wrap: break-word; /* Va a capo se necessario (compatibilità cross-browser) */
+  word-break: break-all; /* Va a capo se necessario (compatibilità cross-browser) */
+  white-space: normal; /* Va a capo se necessario */
+}
+
+@media (max-width: 767px) {
+  .responsive-text {
+    font-size: 12px; /* Dimensione del testo per dispositivi di larghezza superiore o uguale a 600px */
+  }
+  .responsive-input {
+    font-size: 12px; /* Dimensione del testo per dispositivi di larghezza superiore o uguale a 600px */
+  }
+  ul {
+    transform: translate(-12%, 0%);
+  }
+}
+
+.store-info {
+  display: flex;
+  align-items: center;
+  margin-left: 0.5rem;
+}
+.input-button {
+  margin-right: 0.5rem;
+  margin-top: 0.4rem;
+  margin-left: 0.5rem;
+  width: 24px;
+  height: 24px;
+}
+.information {
+  display: flex;
+  flex-direction: column;
+  margin-left: 0.5rem;
+
+}
+.information-address {
+  display: flex;
+  align-items: center;
+}
+
+.color-calendar {
+  color: #0d153d;
+}
+
+.info-rental{
+  padding-left: 2rem;
+}
+
+.dialog-content {
+  overflow: auto;
+  max-height: calc(100vh - 20px); /* Regola l'altezza massima del contenuto */
+}

@@ -1,0 +1,80 @@
+*{
+  font-family: 'Poppins', sans-serif;
+  color: white;
+}
+
+.info-dialog{
+  background-image: linear-gradient(80deg, #134573, #134573, darkred);
+  background-size: cover;
+  overflow: hidden;
+  min-width: 20rem; /* Imposta la larghezza massima a 1200 pixel */
+  margin: 0 auto; /* Centra il contenuto nella pagina */
+  height: 100%
+}
+
+p{
+  padding-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+h2{
+  font-size: 1.6rem;
+  font-weight:bold;
+}
+
+li{
+  font-size: 1.2rem;
+  font-weight:bold;
+}
+
+ul.no-bullet li {
+  list-style-type: none;
+}
+
+.sfondo{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  z-index: -1;
+  filter: blur(2px);
+}
+
+.info{
+  padding-top: 2rem;
+  padding-left: 2rem;
+}
+
+.info > div{
+  margin-bottom: 3rem;
+  margin-right: 3rem;
+}
+
+.movie-title{
+  font-size: 3rem;
+  font-weight: bold;
+  background-image: linear-gradient(180deg, lightgreen, white, green);
+  background-clip: text;
+  color: transparent;
+}
+
+.movie-info{
+  line-height: 2.5rem;
+}
+
+.movie-description{
+  padding-bottom: 3rem;
+}
+
+.font-button{
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: 1px solid black;
+  border-radius: 8px;
+  margin-right: 0.5rem;
+}
+
+

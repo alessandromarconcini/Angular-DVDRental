@@ -1,0 +1,67 @@
+<div *ngIf="!showInfoStore" class = "infoOrder">
+    <p class="info-rental">DVD rental Store Information: {{ infoOrder }}</p>
+    <mat-dialog-actions align="end">
+      <button type="button" class="btn btn-outline-light font-button" mat-dialog-close>Exit</button>
+    </mat-dialog-actions>
+  </div>
+
+  <mat-dialog-content *ngIf="showInfoStore" class="dialog-content" [ngClass]="{'rent-card' : classValidator}" >
+  <div class="mat-typography">
+   <div aria-label="Availability store to rent DVD">
+    <p class="heading" tabindex="0">DVD Rent</p>
+     <p class="no-available" *ngIf="storeInfo == null">We are Sorry. This DVD is currently not available in any Store</p>
+    <ul class="no-bullet">
+      <li *ngFor="let store of storeInfo; let i = index" class="store-card"
+          (keydown.enter)="selectCity(store.city)">
+        <div>
+
+          <label aria-label="Store Information"  class="text-limit">
+            <div tabindex="0" class="store-info"
+                 (keydown.enter)="toggleCalendar(store.city, $event.target); selectedCity = store.city; selectedAddress = store.address"
+                 (keydown.space)="toggleCalendar(store.city, $event.target); selectedCity = store.city; selectedAddress = store.address">
+              <input type="checkbox" class = "input-button"
+                     [checked]="selectedCity === store.city"
+                     (change)="toggleCalendar(store.city, $event.target); selectedCity = store.city; selectedAddress = store.address"
+                     aria-label="Selection Store Rent"
+                     role="checkbox">
+              <div class = "information">
+                <p tabindex="0">City: {{store.city}}</p>
+                <div class = "information-address">
+                  <p tabindex="0">Address: {{store.address}}</p>
+                </div>
+                <p tabindex="0">Phone number: {{store.phone}}</p>
+              </div>
+            </div>
+          </label>
+
+
+          <br>
+          <div *ngIf="calendarStatus[store.city] && selectedCity === store.city" class="responsive-calendar">
+
+            <p>Select rental date</p>
+
+            <mat-form-field aria-label="calendar">
+              <mat-label class = "responsive-text">Enter a date range</mat-label>
+              <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+                <input matStartDate formControlName="start" placeholder="Start date" class = "responsive-input">
+                <input matEndDate formControlName="end" placeholder="End date" class = "responsive-input">
+              </mat-date-range-input>
+              <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+              <mat-datepicker-toggle matIconSuffix [for]="picker" class = "color-calendar"></mat-datepicker-toggle>
+              <mat-date-range-picker #picker></mat-date-range-picker>
+
+            </mat-form-field>
+
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    <mat-dialog-actions align="end">
+      <button type="button" class="btn btn-outline-light font-button" mat-dialog-close>Exit</button>
+      <button type="button" class="btn btn-outline-light font-button" [mat-dialog-close]="true" (click)="rentDVD()">Rent DVD</button>
+    </mat-dialog-actions>
+  </div>
+  </div>
+
+  </mat-dialog-content>

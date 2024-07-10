@@ -1,0 +1,28 @@
+
+<div class="login-container">
+<div class="container">
+  <main>
+    <h1 class ="title-h1"><span class ="span-h1">Login Page</span></h1>
+  <h2 class ="title-h1">The best offer of<br><span class ="span-h1">DVDs that you want</span></h2>
+  <div>
+    <h3  class = "title-h2">A large selection of DVDs <br><span class ="span-h2">Enjoy Rental Experience</span></h3>
+
+    <form class="form-container" aria-label="form for login or registration">
+      <div >
+        <input id="formUsername" class="form-control form-control-lg" [(ngModel)]="username" name="email" required placeholder="Insert Username">
+      </div>
+      <div>
+        <input type="password" id="formPassword" class="form-control form-control-lg" [(ngModel)]="password" name="password" required placeholder="Insert Password">
+      </div>
+      <div *ngIf="showErrorMessage" role = "alert" aria-label="Error Message" class="error-label">{{errorString}}</div>
+      <button type="submit" class="button-dim btn-lg btn-block mb-3" (click)="onSubmit()">Sign In</button>
+      <button class="button-dim btn-lg btn-block" (click)="openDialog()" type="submit">New user registration</button>
+    </form>
+  </div>
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</div>

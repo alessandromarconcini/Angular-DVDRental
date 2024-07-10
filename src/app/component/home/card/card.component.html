@@ -1,0 +1,64 @@
+<div>
+  <div class="container">
+<p class="EmptySearch" *ngIf="resultSearch(this.count)">No film found</p>
+  </div>
+</div>
+
+<div *ngIf="resultSearch2(this.count)" fxLayout="row wrap" fxLayoutGap="40px grid" >
+  <div fxFlex="33%" fxFlex.xs="100%" fxFlex.sm="50%" *ngFor="let film of films" aria-label="Card Information DVD">
+
+    <mat-card class="mat-elevation-z4 card card-item">
+      <mat-card-header>
+        <button mat-fab extended color="primary" class="button-title" (click)="openDialog(film.title,film.categoryname, film.rentalduration)"
+        aria-expanded="true">
+          <mat-card-title class="card-title" [attr.aria-label]="'Info DVD ' + film.title"> {{film.title}}</mat-card-title> </button>
+      </mat-card-header>
+
+
+
+      <mat-card-content>
+        <ul class="info-list">
+          <li> Title: <strong>{{film.title}}</strong></li>
+          <li> Year: <strong>{{film.releaseyear}}</strong></li>
+          <li> Rating: <strong>{{film.rating}}</strong></li>
+          <li> Category: <strong>{{film.categoryname}}</strong></li>
+          <li> Language: <strong>{{film.language}}</strong></li>
+          <li> Cost: <strong>{{film.rentalrate}} $ / day</strong></li>
+          <li> Maximum Rental Duration: <strong>{{film.rentalduration}} days</strong></li>
+        </ul>
+      </mat-card-content>
+      <mat-card-actions>
+        <div>
+        <button mat-fab extended class="button-p" aria-expanded="true" (click)="openDialogRent(film.title, film.categoryname, film.rentalduration)">RENT
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+               class="bi bi-cart single-icon-rent" viewBox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13
+            12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5
+            12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1
+             0 1 1 0 2 1 1 0 0 1 0-2z"/>
+          </svg></button>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+
+
+
+  </div>
+  <footer class="content container">
+    <nav aria-label="Page navigation" class="paginator-style">
+      <ul class="pagination justify-content-center button-paginator">
+        <li class="page-item">
+          <button class="page-link" (click)="onPrevious()">Previous</button>
+        </li>
+        <li class="page-item"><button [class.selected-button]="selectedPage === pag1" (click)="goToPage(this.pag1)" class="page-link">{{this.pag1}} </button></li>
+        <li class="page-item"><button [class.selected-button]="selectedPage === pag2" (click)="goToPage(this.pag2)" class="page-link">{{this.pag2}} </button></li>
+        <li class="page-item"><button [class.selected-button]="selectedPage === pag3" (click)="goToPage(this.pag3)" class="page-link">{{this.pag3}} </button></li>
+        <li class="page-item"><button [class.selected-button]="selectedPage === pag4" (click)="goToPage(this.pag4)" class="page-link">{{this.pag4}} </button></li>
+        <li class="page-item"><button [class.selected-button]="selectedPage === pag5" (click)="goToPage(this.pag5)" class="page-link">{{this.pag5}} </button></li>
+        <li class="page-item">
+          <button class="page-link" (click)="onNext()">Next</button>
+        </li>
+      </ul>
+    </nav>
+  </footer>
+</div>

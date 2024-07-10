@@ -1,0 +1,36 @@
+
+<div class="info-dialog">
+<div class="sfondo" ></div>
+<div class="info" *ngFor="let film of film_information" role="dialog" aria-modal="true"
+     aria-label="DVD information and availability store">
+  <div class="movie-title" tabindex="0"  [attr.aria-label]="'Title DVD ' + film.title">
+    {{film.title}}
+  </div>
+
+
+  <mat-dialog-content class="mat-typography">
+
+    <div>
+      <h2 tabindex="-1">Trama</h2>
+      <div class="movie-description" >
+        <p>{{film.description}}</p>
+      </div>
+      <div class="movie-info">
+        <ul>
+          <li>Category: {{film.categoryname}}</li>
+          <li>Rating: {{film.rating}}</li>
+          <li>Actor: {{film.actorfirstname}} {{film.actorlastname}}</li>
+          <li>Film Length: {{film.length}}m</li>
+          <li>Language: {{film.language}}</li>
+          <li>Release Year: {{film.releaseyear}}</li>
+          <li>Maximum Rental Duration: {{film.rentalduration}} day(s)</li>
+          <li>Price: {{film.rentalrate}} $</li>
+        </ul>
+      </div>
+    </div>
+
+    <app-rent-dialog></app-rent-dialog>
+  </mat-dialog-content>
+
+</div>
+</div>

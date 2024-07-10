@@ -1,0 +1,75 @@
+
+
+.selected-button {
+  background-color: #134573;
+}
+
+.card {
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-title{
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.button-p{
+  background-color: #ffffff;
+  color: #000509;
+  border-radius: 10rem;
+  font-weight: bold;
+}
+.button-p:hover{
+  background-color: #3f51b5;
+  color: aliceblue;
+  font-size: 1.25rem;
+  border-radius: 10rem;
+}
+
+.button-title:hover{
+  transform: scale(1.15);
+}
+
+.card-item {
+  display: flex; /* Per responsive */
+  justify-content: space-between; /*Stessa distanza tra gli elementi*/
+}
+
+.info-list{
+  padding-top: 1rem;
+  font-weight: 500;
+}
+
+.paginator-style{
+  font-size: 1.2rem;
+}
+
+.button-paginator{
+  font-size: 1.5rem
+}
+.page-link:hover{
+  background: #527396;
+}
+
+.EmptySearch{
+  font-size: 2rem;
+  color:lightgrey;
+  font-weight: 600;
+  border-radius: 50px;
+  padding-bottom: 3rem;
+  text-align: center;
+}
+
+
+.card button:focus {
+  background-color: #b93940;
+}
+
+@media screen and (max-width: 768px) {
+  .button-paginator{
+    font-size: 1.2rem
+  }
+}

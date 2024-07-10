@@ -1,0 +1,18 @@
+.navbar {
+  background-color: black;
+}
+
+.decreaseText{
+  background-color: black;
+  color: white;
+  border: none
+}
+
+.increaseText{
+  background-color: black;
+  color: white;
+  border: none;
+  font-size: 2rem;
+}
+
+

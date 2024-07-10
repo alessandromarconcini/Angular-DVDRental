@@ -1,0 +1,79 @@
+*{
+  color: black;
+}
+
+td{
+  font-weight: bold;
+  font-size: 1rem;
+  color: #575151;
+}
+.filter-class{
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+th{
+
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+header{
+  padding-top: 2rem;
+}
+
+.title-page{
+  background-clip: text;
+  background-image: linear-gradient(180deg, #5d99a9, #dadae3);
+  color: transparent;
+  font-weight: bold;
+}
+
+.wallpaper-render{
+  background-image: url('src/images/wallpaperflare.com_wallpaper.jpg');
+  background-size:cover;
+  min-height: 100vh;
+}
+
+.table-top-radius{
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+}
+
+.table-bottom-radius{
+  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+}
+
+.single-icon{
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.text-presentation{
+  padding-top: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.riga {
+  background-color: black;
+}
+
+.container{
+  position: relative;
+
+  justify-content: space-between;
+}
+
+.button-font-text {
+  position: absolute;
+  top: -1.8rem;
+  right: 1rem;
+}
+.filter-class {
+  padding-top: 1rem;
+  padding-bottom: 2rem
+}
+.paginator-class{
+  font-size: medium;
+}

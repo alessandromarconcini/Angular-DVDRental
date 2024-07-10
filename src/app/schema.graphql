@@ -1,0 +1,139 @@
+scalar DateTime
+
+type Query {
+  films(offset: Int = 0, limit: Int = 12): FilmResult
+  film_information(title:String!= ""): FilmInformation
+  film_category_search(categories: [String]! = [], offset:Int=0, limit:Int = 12):FilmResultByCategory
+  film_title_search(title:String!="",offset:Int=0,limit:Int = 12):FilmResultByTitle
+  film_title_and_category_search(title:String!="",categories: [String]! = [],offset:Int=0,limit:Int = 12):FilmResultByTitleAndCategory
+  film_store_information(title:String!= ""): StoreInformation
+  signIn(username:String!="",password:String!=""):Auth
+  tokenTest(token:String!="",username:String!="",password:String!=""):TokenTest
+  order_information(token:String!): OrderList
+  double_user(username:String!):DoubleUser
+  same_date_check(title:String!, start_date:String!,token:String!): SameDateTest
+}
+
+type Mutation {
+  signUp(username: String!, password: String!): User
+  rent(token:String!,city:String!,address:String!,starting_rental:DateTime!,end_rental:DateTime!,film_title:String!):RentReturn
+}
+
+
+type FilmResult{
+  count: Int
+  films: [Film_card]
+}
+
+type FilmResultByTitle{
+  count: Int
+  film_title_search: [Film_card]
+}
+
+type FilmResultByCategory{
+  count: Int
+  film_category_search: [Film_card]
+}
+
+type FilmResultByTitleAndCategory{
+  count: Int
+  film_title_and_category_search: [Film_card]
+}
+
+type StoreInformation{
+  film_store_information: [Store_info]
+}
+
+type OrderList {
+  order_information:[Order]
+}
+
+type Order{
+  rental_id: Int
+  title: String
+  rental_date: DateTime
+  return_date: DateTime
+  amount: Float
+  categoryname: String
+  address:String
+  city:String
+}
+
+type Film_card {
+  fulltext: String
+  rating: String
+  lastupdate: String
+  filmid: ID
+  releaseyear: Int
+  languageid: Int
+  rentalduration: Int
+  rentalrate: Float
+  length: Int
+  replacementcost: Float
+  title: String
+  description: String
+  specialfeatures: [String]
+  categoryname: String
+  language: String
+}
+
+
+type FilmInformation{
+  film_information: [Film_info]
+}
+
+type Film_info {
+  rating: String
+  releaseyear: Int
+  rentalduration: Int
+  rentalrate: Float
+  title: String
+  description: String
+  categoryname: String
+  language: String
+  actorfirstname: String
+  actorlastname: String
+  length: Int
+}
+
+type Store_info {
+  title: String
+  address: String
+  phone:String
+  city: String
+}
+
+
+
+type User{
+  username:String,
+  password:String,
+}
+
+type Auth{
+  isAuthenticated:Boolean
+  token:String,
+  expiresIn:String,
+  customer_id: Int
+}
+
+type TokenTest{
+  result:Boolean
+}
+
+type SameDateTest{
+  result:Boolean
+}
+
+type RentReturn{
+  customer_id:Int,
+  city:String,
+  address:String,
+  starting_rental:DateTime,
+  end_rental:DateTime,
+  film_title:String
+}
+
+type DoubleUser{
+  result:Boolean
+}

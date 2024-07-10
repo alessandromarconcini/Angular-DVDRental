@@ -1,0 +1,100 @@
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<div class="wallpaper-render">
+
+<app-nav-bar></app-nav-bar>
+<div role="main">
+  <header class="head-banner text-white text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <h1 class="title-page">ORDER DETAIL</h1>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="text-center container-fluid filter-class">
+    <mat-form-field class="container" >
+      <mat-label>Filter Order By Title</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Insert Title Film" #input>
+    </mat-form-field>
+  </div>
+  <div class="mat-elevation-z8 container">
+    <div class="table-responsive table-top-radius">
+      <table mat-table [dataSource]="dataSource" matSort>
+
+
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>ORDER NUMBER</th>
+          <td mat-cell *matCellDef="let row" aria-label="Order number">{{row.id}}</td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="rental_date">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>RENTAL DATE</th>
+          <td mat-cell *matCellDef="let row" aria-label="Rental Date" >{{row.rental_date}}</td>
+        </ng-container>
+
+
+
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>TITLE</th>
+          <td mat-cell *matCellDef="let row" aria-label="title DVD" >{{row.title}}</td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="return_date">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>RETURN DATE</th>
+          <td mat-cell *matCellDef="let row" aria-label="Return Date">{{row.return_date}}</td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="amount">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>AMOUNT</th>
+          <td class="text-center" mat-cell *matCellDef="let row" aria-label="Amount">{{row.amount}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="categoryname" aria-hidden="true">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+          <td mat-cell *matCellDef="let row">{{row.categoryname}}</td>
+        </ng-container>
+
+        <!-- Info Column -->
+        <ng-container matColumnDef="info">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>ORDER DETAILS</th>
+          <td mat-cell *matCellDef="let row">
+            <div class="d-flex justify-content-center align-items-center">
+              <button mat-icon-button color="primary" (click)="openDialog(row.title, row.categoryname, row.store)" aria-label="Rental details">
+                <mat-icon>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                    <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                  </svg>
+                </mat-icon>
+              </button>
+            </div>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        </tr>
+      </table>
+    </div>
+
+    <mat-paginator class="table-bottom-radius" style="font-size: medium" [hidePageSize]="true" [pageSize]="5" aria-label="Select page of rental"></mat-paginator>
+  </div>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zySzpUm5qlJLzC4Rx6J8ffMScCz1u8.4+ZPL2L5" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-bw+lcnaCp3N9qem9U3dJ+1Cf/LX0pYnDmaXjhODjG5RR8oiYhOZu42d4WqC4HeHG" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua6b9K4a5+aHRZyvQ9adm6sf2y7uFjBnY4g6jB8e5i/1F4GgBck/sSdPh" crossorigin="anonymous"></script>
+</div>

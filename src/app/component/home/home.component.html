@@ -1,0 +1,89 @@
+
+<main role="main">
+
+  <app-nav-bar></app-nav-bar>
+
+  <div class="wallpaper">
+    <div  class="head-banner text-white text-center" aria-label="DVD Store Univr Site Home Page">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-9 mx-auto">
+            <h1 class="header-title" role="heading" aria-level="1">DVD Store Univr</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="sezione-icone text-center" aria-label="Description feature site">
+      <div class="container text-white">
+        <div class="row" id="icon_section" >
+          <div class="col-lg-4">
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-camera-reels single-icon" viewBox="0 0 16 16"
+              aria-label="icon wide selection of dvd">
+                <path d="M6 3a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM1 3a2 2 0 1 0 4 0 2 2 0 0 0-4 0z"/>
+                <path d="M9 6h.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 7.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2
+                2 0 0 1 9.5 16H2a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h7zm6 8.73V7.27l-3.5 1.555v4.35l3.5 1.556zM1 8v6a1 1 0 0 0
+                1 1h7.5a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1z"/>
+                <path d="M9 6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM7 3a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
+              </svg>
+              <p class="text-presentation">Wide Selection</p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-badge-4k-fill single-icon" viewBox="0 0 16 16"
+                 aria-label="icon high quality dvd">
+              <path d="M3.577 8.9v.03h1.828V5.898h-.062a46.781 46.781 0 0 0-1.766 3.001z"/>
+              <path d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2zm2.372 3.715.435-.714h1.71v3.93h.733v.957h-.733V11H5.405V9.888H2.5v-.971c.574-1.077 1.225-2.142 1.872-3.202zm7.73-.714h1.306l-2.14 2.584L13.5 11h-1.428l-1.679-2.624-.615.7V11H8.59V5.001h1.187v2.686h.057L12.102 5z"/>
+            </svg>
+            <p  class="text-presentation">High Quality</p>
+          </div>
+          <div class="col-lg-4">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-credit-card-fill single-icon" viewBox="0 0 16 16"
+                 aria-label="icon secure payment">
+              <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1H0V4zm0 3v5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7H0zm3 2h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1a1 1 0 0 1 1-1z"/>
+            </svg>
+            <p  class="text-presentation">Secure Payment</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+<section>
+  <div class="card-wallpaper">
+    <aside class="container content" aria-label="Filter DVDs by title and category">
+
+      <mat-form-field  >
+        <mat-label  class="filter-label">Filter by name</mat-label>
+        <input matInput type="input" placeholder="Enter movie name" (input)="submitSearch()" [(ngModel)]="searchTitle" role="textbox" class="custom-input">
+      </mat-form-field>
+
+      <mat-form-field >
+        <mat-label id="category-filter-label" class="filter-label">Filter by category</mat-label>
+        <mat-select [formControl]="selectCategory" multiple (selectionChange)="clickSelectCategory()" aria-labelledby="category-filter-label" aria-label="Select category">
+          <mat-select-trigger>
+            <span class="span-style" role="button" aria-haspopup="listbox" aria-expanded="false">{{selectCategory.value}}</span>
+          </mat-select-trigger>
+          <div class="mat-select-panel" [class.open]="selectOpened" role="listbox">
+            <ng-container *ngFor="let topping of toppingList; let i = index">
+              <mat-option [value]="topping" role="option" [attr.aria-selected]="selectCategory.value?.includes(topping) ? 'true' : 'false'" [attr.tabindex]="i === 0 ? 0 : -1">
+                {{topping}}
+              </mat-option>
+            </ng-container>
+          </div>
+        </mat-select>
+      </mat-form-field>
+    </aside>
+
+    <aside class="card-style" aria-label="DVD list">
+      <app-card [categoryFromHome]= "categoryToShare" [titleFromHome] = "searchTitleToShare"></app-card>
+    </aside>
+  </div>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular-sanitize.min.js"></script>
+
+
